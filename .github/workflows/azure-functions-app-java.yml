@@ -48,7 +48,7 @@ jobs:
       with:
         java-version: ${{ env.JAVA_VERSION }}
 
-    - name: 'Restore Project Dependencies Using Maven'
+    - name: 'Restore Project Dependencies Using Mvn'
       shell: pwsh # For Linux, use bash
       run: |
         pushd './${{ env.POM_XML_DIRECTORY }}'
