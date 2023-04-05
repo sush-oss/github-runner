@@ -20,7 +20,9 @@ name: Deploy Java project to Azure Function App
 
 on:
   push:
-    branches: [ " main " ]
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 env:
   AZURE_FUNCTIONAPP_NAME: 'Hello World'     # set this to your function app name on Azure
