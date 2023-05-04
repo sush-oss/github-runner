@@ -20,7 +20,7 @@ jobs:
       
       - name: Build with Maven
         run: mvn -B clean install package --file pom.xml
-      - run: mkdir staging && cp target/* staging
+      - run: mkdir staging && cp target/ staging
       - uses: actions/upload-artifact@v1
         with:
           name: Package
