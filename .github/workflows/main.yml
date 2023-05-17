@@ -19,7 +19,7 @@ jobs:
           
       
       - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots package
+        run: mvn -B clean install package --file src/pom.xml
       - run: mkdir staging && cp target/*.jar staging
       - uses: actions/upload-artifact@v1
         with:
