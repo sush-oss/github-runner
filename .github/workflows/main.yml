@@ -35,3 +35,8 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: Package
+      - name: Deploy Package to jboss
+        uses: redhat-developer/jboss-eap-deploy@v1
+        with:
+          jboss_home: path/to/jboss
+          war_fil: src/target.*jar 
