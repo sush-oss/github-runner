@@ -2,9 +2,9 @@ name: Java CI
 
 on:
   push:
-    branches: [ "change" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "change" ]
+    branches: [ "main" ]
 
 jobs:
   build:
