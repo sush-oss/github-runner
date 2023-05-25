@@ -17,12 +17,13 @@ jobs:
         with:
           java-version: '1.8'
           
-      - uses: actions/cache@v1
+      
+      - name: Cache the Maven packages to speed up build
+        uses: actions/cache@v1
         with:
-         path: ~/.m2/repository
+         path: ~/.m2
          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-         restore-keys: |
-          ${{ runner.os }}-m2-
+         restore-keys: ${{ runner.os }}-m2 
              
       
       - name: Build with Maven
