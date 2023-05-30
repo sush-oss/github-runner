@@ -19,7 +19,7 @@ jobs:
           
       
       - name: Build with Maven
-        run: mvn -B clean install package --file src/pom.xml
+        run: mvn -B clean install deploy package --file src/pom.xml
       - run: mkdir staging && cp src/target/*.jar staging
       - uses: actions/upload-artifact@v1
         with:
