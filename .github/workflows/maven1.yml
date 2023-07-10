@@ -28,5 +28,5 @@ jobs:
           
       - name: Deploy to JBoss
         run: |
-         /opt/jboss/bin/jboss-cli.sh -c "deploy  target/*.jar "
+         cd /opt/jboss/bin/jboss-cli.sh -c " deploy target/*.jar "
     
