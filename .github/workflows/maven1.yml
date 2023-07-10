@@ -2,9 +2,9 @@ name: Java CI
 
 on:
   push:
-    branches: [ "change" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "change" ]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -25,3 +25,8 @@ jobs:
         with:
           name: Package
           path: staging
+          
+      - name: Deploy to JBoss
+        run: |
+         EAP_HOME/bin/jboss-cli.sh --connect --controller=192.168.0.1:9991 "deploy  target/*.jar "
+    
