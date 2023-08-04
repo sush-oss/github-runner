@@ -37,4 +37,10 @@ jobs:
       - uses: actions/upload-artifact@v1
         with:
           name: Package
-          path: staging    
+          path: staging 
+
+      - name: Download the artifacts
+        uses: actions/download-artifact@v3
+        with: 
+         name: Package
+         path: Staging
