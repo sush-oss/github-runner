@@ -33,5 +33,5 @@ jobs:
       - name: Download the artifacts
         uses: actions/download-artifact@v3
         with: 
-         name: Package -Dbuild.number=$BUILD_NUMBER
-         path: Staging
+         name: Package 
+         path: Staging -Dbuild.number=$BUILD_NUMBER
