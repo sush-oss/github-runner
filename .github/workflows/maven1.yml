@@ -17,22 +17,13 @@ jobs:
         with:
           java-version: '1.8'
 
-      - name: increment version
-        id: increment_version
+      - name: set build number
+        id: set_buildnumber
         run: |
-
-         CURRENT_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
-         echo "current version: $CURRENT_VERSION"
-
-         NEXT_VERSION=$(echo $CURRENT_VERSION | awk -F. '{$NF = $NF+1;} 1' | sed 's/ /./g')
-         echo "Next version: $NEXT_VERSION"
-
-         echo "NEXT_VERSION=$NEXT_VERSION" >> $GITHUB_ENV
-          
-          
-      
+         echo "BUILD_NUMBER=$(($(cat build_number.txt)+1))" >> $GITHUB_ENV
+         
       - name: Build with Maven
-        run: mvn -B clean install package --file pom.xml -DnewVersion=${NEXT_VERSION} 
+        run: mvn -B clean install package -Dbuild.number=$BUILD_NUMBER --file pom.xml  
       - run: mkdir staging && cp target/*.jar staging
       - uses: actions/upload-artifact@v1
         with:
