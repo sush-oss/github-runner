@@ -6,13 +6,12 @@
     <artifactId>jb-hello-world-maven</artifactId>
     <packaging>jar</packaging>
     <version>0.2.0</version>
-
+    <build.number>${build.number}</build.number>
     <!-- tag::joda[] -->
      <properties>
            <java.version>1.8</java.version>
            <maven.compiler.source>1.6</maven.compiler.source>
            <maven.compiler.target>1.6</maven.compiler.target>
-           <build.number>${build.number}</build.number>
      </properties>
 
       <dependencies>
@@ -43,9 +42,6 @@
                                     <mainClass>hello.HelloWorld</mainClass>
                                 </transformer>
                             </transformers>
-                        </configuration>
-                        <configuration>
-                            <finalName>${project.version}-b${buildNumber}</finalName>
                         </configuration>
                     </execution>
                 </executions>
