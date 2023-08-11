@@ -44,6 +44,9 @@
                                 </transformer>
                             </transformers>
                         </configuration>
+                        <configuration>
+                            <finalName>${project.version}-b${buildNumber}</finalName>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
