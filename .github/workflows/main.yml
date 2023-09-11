@@ -20,7 +20,7 @@ jobs:
       - name: Configure Git user
         run: |
           git config --global user.name "$GITHUB_ACTOR" 
-          gti config --global --get user.name
+          git config --global --get user.name
           
       
       - name: Cache the Maven packages to speed up build
