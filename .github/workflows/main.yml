@@ -16,6 +16,10 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: '1.8'
+
+      - name: Configure Git user
+        run: |
+          git config --global user.name "$GITHUB_ACTOR" 
           
       
       - name: Cache the Maven packages to speed up build
