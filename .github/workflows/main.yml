@@ -19,6 +19,8 @@ jobs:
         run: |
          COMMIT_EMAIL=$(git log -1 --pretty=format:%ae)
          echo "commit Email: $COMMIT_EMAIL"
+         git config --global user.name "$GITHUB_ACTOR"
+         git config --global user.email "$COMMIT_EMAIL"  
       - name: Cache the Maven packages to speed up build
         uses: actions/cache@v1
         with:
