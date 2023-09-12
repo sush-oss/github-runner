@@ -22,7 +22,8 @@ jobs:
         run: |
           actor_username=${{ github.actor }}
           actor_email=$(curl -s -H "Authorization:token ${{ secrets.TOKEN }}" \ "https://api.gtihub.com/users/$actor_username/emails" | jq -r '.[0].email')
-          echo "actor_email:$actor_email" >> $GITHUB_ENV
+          echo "actor_email:$actor_email" 
+          echo "actor_email=$actor_email" >> $GITHUB_ENV
       
       - name: Cache the Maven packages to speed up build
         uses: actions/cache@v1
