@@ -23,7 +23,7 @@ jobs:
         id: actor_email
         run: |
           actor_username=${{ github.actor }}
-          actor_email=$(curl -L \ -H "Authorization: token ${{ env.TOKEN }}" \ "https://api.github.com/users/emails")
+          actor_email=$(curl -L \ -H "Authorization: token ${{ env.TOKEN }}" \ https://api.github.com/user/emails )
           echo "actor_email:$actor_email" 
           echo "actor_email=$actor_email" >> $GITHUB_ENV
       
