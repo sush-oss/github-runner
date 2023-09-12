@@ -18,10 +18,12 @@ jobs:
           java-version: '1.8'
 
       - name: Configure Git user
+        env:
+         TOKEN: ${{ secrets.TOKEN }}
         id: actor_email
         run: |
           actor_username=${{ github.actor }}
-          actor_email=$(curl -s -H "Authorization:token ${{ secrets.TOKEN }}" \ "https://api.gtihub.com/users/$actor_username/emails" | jq -r '.[0].email')
+          actor_email=$(curl -L \ -H "Authorization: token ${{ env.TOKEN }}" \ "https://api.gtihub.com/users/$actor_username/emails")
           echo "actor_email:$actor_email" 
           echo "actor_email=$actor_email" >> $GITHUB_ENV
       
