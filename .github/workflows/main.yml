@@ -17,7 +17,7 @@ jobs:
 
       - name: Configure Git user
         run: |
-         COMMIT_EMAIL=$(git log -1 --preety=format:%ae)
+         COMMIT_EMAIL=$(git log -1 --pretty=format:%ae)
          echo "commit Email: $COMMIT_EMAIL"
       - name: Cache the Maven packages to speed up build
         uses: actions/cache@v1
