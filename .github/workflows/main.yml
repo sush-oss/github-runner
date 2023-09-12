@@ -18,12 +18,12 @@ jobs:
           java-version: '1.8'
 
       - name: Configure Git user
+        id: actor_email
         run: |
           git config --global user.name "$GITHUB_ACTOR" 
           git config --global --get user.name
-        id: actor_email
-         actor_username=${{ github.actor }}
-         actor_email=$(curl -s -H "Authorization:token ${{ secrets.GITHUB_TOKEN }}" \ "https://api.gtihub.com/users/$actor_username/emails" | jq -r '.[0].email')
+          actor_username=${{ github.actor }}
+          actor_email=$(curl -s -H "Authorization:token ${{ secrets.GITHUB_TOKEN }}" \ "https://api.gtihub.com/users/$actor_username/emails" | jq -r '.[0].email')
 
                  echo "::set-output name=actor_email::$actor_email"
                  echo "github actor mail:${{step.actor_email.outputs.actor_email }}"
