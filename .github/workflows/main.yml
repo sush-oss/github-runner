@@ -23,7 +23,7 @@ jobs:
           actor_email=$(curl -L \ -H "Accept:application/vnd.github+json" \ -H "Authorization: Bearer ${{ env.TOKEN }}" \ -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/user/emails | jq -r '.email')
       - name: display data 
         run: |
-           email_address=$(echo "$json_data" | jq -r '.user.email')
+           email_address=$(echo "$json_data" | jq '.email | type')
            echo "email: $email_address"
           
       - name: Cache the Maven packages to speed up build
