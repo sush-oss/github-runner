@@ -29,7 +29,7 @@ jobs:
 
       - name: Display email
         run: |
-            echo "github actor mail:${{step.actor_email.outputs.actor_email }}"
+            echo "github actor mail: ${{steps.actor_email.outputs.actor_email }}"
       
       - name: Cache the Maven packages to speed up build
         uses: actions/cache@v1
